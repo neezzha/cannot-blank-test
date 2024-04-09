@@ -77,11 +77,20 @@ const makeCommits = (n) => {
   });
 };
 
-const git = simpleGit().outputHandler((command, stdout, stderr) => {
-  console.log(`Running command: ${command}`);
-  stdout.pipe(process.stdout);
-  stderr.pipe(process.stderr);
-});
+// const git = simpleGit().outputHandler((command, stdout, stderr) => {
+//   console.log(`Running command: ${command}`);
+//   stdout.pipe(process.stdout);
+//   stderr.pipe(process.stderr);
+// });
 console.log("Starting commits");
+
+const git = simpleGit();
+
+git
+  .init()
+  .then(() => git.add("."))
+  .then(() => git.commit("Initial commit"))
+  .then(() => console.log("Commit successful"))
+  .catch((err) => console.error("Failed to execute git:", err));
 
 makeCommits(100);
