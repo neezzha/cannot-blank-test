@@ -45,3 +45,5 @@ const makeCommits = (n) => {
 };
 
 makeCommits(100);
+
+console.log("switched");
