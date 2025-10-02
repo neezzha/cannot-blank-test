@@ -1,6 +1,6 @@
 import jsonfile from "jsonfile";
 import moment from "moment";
-import simpleGit from "simple-git";
+import { simpleGit } from "simple-git";
 import random from "random";
 
 const path = "./data.json";
@@ -76,5 +76,6 @@ const makeCommits = (n) => {
       .commit(date, { "--date": date }, () => makeCommits(--n));
   });
 };
+2;
 console.log("Starting commits");
-makeCommits(300);
+makeCommits(900);
